@@ -18,8 +18,9 @@ app.use(errorHandler);
 // define a route handler for the default home page
 app.post( "/", validate(validations), ( req, res ) => {
     logger.info("recieved request" + JSON.stringify(req.body));
-    let parser = new Parser(req.body);
+    let parser = new Parser(req.body); //create new parser
     parser.getLedger(function(ledger: Object, E: Error) {
+        //Bad request error
         if (E) {
             res.status(400).json(E).end();
         } else {

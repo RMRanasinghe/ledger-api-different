@@ -41,8 +41,9 @@ src - main source code
 test
 └── test.ts - main Integration/ unit test suit
 
-## Assumptions
+## Remarks
 
-* Property, request, response timezone should be same
+* Assume property, request, response timezone should be same
 * Amount rounded for nearest cent
+* tested for node v v12.13.1 npm 6.12
 

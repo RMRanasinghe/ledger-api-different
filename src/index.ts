@@ -32,7 +32,7 @@ app.post( "/", validate(validations), ( req, res ) => {
 
 // start the Express server
 const server = app.listen( port, () => {
-    console.info("App listening at http://%s", port);
+    console.info("App listening at http:localhost//%s", port);
 });
 
 export default server;

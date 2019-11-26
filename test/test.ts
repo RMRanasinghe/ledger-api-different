@@ -64,10 +64,15 @@ describe('Validate Body', function () {
       describe('Test Weekly ledger iterator', function () {
 
         it('Should return weekly ledger iterator with correct values', function (done) {
+            var expected: string[] = ["Mar 28 2020", "Apr 04 2020", "Apr 11 2020", "Apr 18 2020", "Apr 25 2020",
+             "May 02 2020", "May 09 2020", "May 16 2020", "May 23 2020"]
             var myLease = new Lease((new Date("March 28, 2020")).toISOString(),(new Date("May 27, 2020")).toISOString(),"WEEKLY",555,"Africa/Abidjan")
             var myLedger = new Ledger(myLease)
+            var i = 0
             for (let line of myLedger.getWeeklyLedger()) { 
-                console.log(line.start + " " + line.end + " " + line.amount)
+                //console.log(line.start + " " + line.end + " " + line.amount)
+                assert.equal(new Date(expected[i]).getTime(),  line.start.getTime())
+                i += 1
             }
 
             done()
@@ -77,10 +82,15 @@ describe('Validate Body', function () {
       describe('Test Monthly ledger iterator', function () {
 
         it('Should return monthly ledger iterator with correct values', function (done) {
+            var expected = ["Mar 31 2020","Apr 30 2020", "May 31 2020", "Jun 30 2020", "Jul 31 2020 ", "Aug 31 2020", "Sep 30 2020",
+          "Oct 31 2020", "Nov 30 2020", "Dec 31 2020", "Jan 31 2021", "Feb 28 2021", "Mar 31 2021", "Apr 30 2021", "May 31 2021"]
             var myLease = new Lease((new Date("March 31, 2020")).toISOString(),(new Date("May 27, 2021")).toISOString(),"WEEKLY",555,"Africa/Abidjan")
             var myLedger = new Ledger(myLease)
+            var i = 0
             for (let line of myLedger.getMonthlyLedger()) { 
-                console.log(line.start + " " + line.end + " " + line.amount)
+                //console.log(line.start + " " + line.end + " " + line.amount)
+                assert.equal((new Date(expected[i])).getTime(),line.start.getTime())
+                i += 1
             }
 
             done()

@@ -1,5 +1,9 @@
 import winston from "winston"
 
+/***
+ * This is a basci logger for this project. Errors are written into logs/error.log
+ * All the logs are written into combined.log
+ */
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.json(),

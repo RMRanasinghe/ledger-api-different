@@ -17,7 +17,7 @@
     "express-validation": "^1.0.3",
     "joi": "^14.3.1",
     "joi-timezone": "^2.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "winston": "^3.2.1"
   },
   "devDependencies": {
